@@ -13,7 +13,47 @@ const Skills = () => {
         const query = '*[_type=="experiences"]';
         const skillQquery = '*[_type=="skills"]';
         client.fetch(query).then((data) => {
-            setExperience(data)
+            // console.log(data);
+            // Mapping of month names to numerical values
+            const monthMap = {
+                January: 0,
+                February: 1,
+                March: 2,
+                April: 3,
+                May: 4,
+                June: 5,
+                July: 6,
+                August: 7,
+                September: 8,
+                October: 9,
+                November: 10,
+                December: 11,
+            };
+
+            // Function to extract a comparable date value from the year
+            const extractDateValue = (year) => {
+                const yearParts = year.split(' - ');
+
+                // If there's a range, get the first part
+                const startYear = yearParts[0].match(/\d{4}/) ? parseInt(yearParts[0].match(/\d{4}/)[0], 10) : null;
+
+                // If the year contains month information
+                if (yearParts[0].match(/[a-zA-Z]/)) {
+                    const [monthName, monthYear] = yearParts[0].split(' ');
+                    const month = monthMap[monthName];
+                    return new Date(monthYear, month); // Year, Month
+                }
+
+                return new Date(startYear, 0);
+            };
+
+            // Sorting the experiences array
+            const sortedExperiences = data.sort((a, b) => {
+                return extractDateValue(a.year) - extractDateValue(b.year);
+            });
+
+
+            setExperience(sortedExperiences)
         })
 
         client.fetch(skillQquery).then((data) => {
@@ -22,7 +62,7 @@ const Skills = () => {
     }, []);
     return (
         <>
-            <h2 className="head-text">Skills & Experiences</h2>
+            <h2 className="head-text">Skills, Education & Experiences</h2>
 
             <div className="app__skills-container">
                 <motion.div className="app__skills-list">

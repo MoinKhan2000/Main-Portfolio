@@ -13,11 +13,23 @@
 }
 
 .app__footer {
-    background: var(--black-color); /* Use black color */
-    color: var(--white-color); /* Use white color */
-    padding: 2rem 0;
+    background: var(--white-color); /* Use black color */
+    color: var(--gray-color); /* Use white color */
+    padding: 3rem 0; /* Increased padding */
     text-align: center;
     font-family: var(--font-base); /* Use base font */
+    position: relative; /* For pseudo-element */
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: 10px;
+        background: var(--secondary-color);
+        animation: slide-in 0.5s forwards; /* Animation on load */
+    }
 
     .app__footer-content {
         max-width: 1200px; /* Max width to match header */
@@ -27,6 +39,8 @@
         .footer-text {
             font-size: 1rem;
             margin: 0.5rem 0;
+            opacity: 0; /* For animation */
+            animation: fadeIn 0.5s forwards 0.5s; /* Fade in effect */
         }
 
         .social-links {
@@ -35,19 +49,39 @@
             margin-top: 1rem;
 
             .social-link {
-                color: var(--white-color);
+                color: var(--gray-color);
                 margin: 0 1rem;
                 text-decoration: none;
-                transition: color 0.3s;
+                transition: color 0.3s, transform 0.3s; /* Added transform for hover effect */
+                position: relative; /* For pseudo-element */
 
                 &:hover {
-                    color: var(--lightGray-color); /* Lighter gray on hover */
+                    color: var(--black-color); /* Lighter gray on hover */
+                    transform: scale(1.1); /* Scale on hover */
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px; /* Space below the text */
+                    left: 50%;
+                    width: 0;
+                    height: 2px;
+                    background: var(--black-color);
+                    transition: width 0.3s ease, left 0.3s ease; /* Smooth width transition */
+                }
+
+                &:hover:before {
+                    width: 100%; /* Fill the line on hover */
+                    left: 0; /* Align to the left */
                 }
             }
         }
     }
 
     @media screen and (max-width: 600px) {
+        padding: 2rem 0; /* Reduce padding on mobile */
+        
         .footer-text {
             font-size: 0.9rem; /* Smaller font on mobile */
         }
@@ -55,8 +89,27 @@
         .social-links {
             flex-direction: column; /* Stack links on smaller screens */
             .social-link {
-                margin: 0.5rem 0;
+                margin: 0.5rem 0; /* Spacing for stacked links */
             }
         }
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
     }
 }

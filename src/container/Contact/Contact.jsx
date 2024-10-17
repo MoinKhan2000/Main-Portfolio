@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Contact.scss';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { SiReplit } from "react-icons/si";
-import { AiOutlineWhatsApp } from 'react-icons/ai'; // Import WhatsApp icon
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { SiLeetcode, SiReplit } from "react-icons/si";
+import { AiOutlineWhatsApp } from 'react-icons/ai'
 
 const Contact = () => {
   const headerVariants = {
@@ -64,7 +64,7 @@ const Contact = () => {
               <FaGithub className='contact-social-icon' />
             </a>
             <a style={{ color: `var(--gray-color)`, textDecoration: 'none' }} href='https://leetcode.com/u/Moin-Khan/' target='_blank' rel='noopener noreferrer'>
-              <FaFacebook className='contact-social-icon' />
+              <SiLeetcode className='contact-social-icon' />
             </a>
             <a style={{ color: `var(--gray-color)`, textDecoration: 'none' }} href='https://replit.com/@MoinKhan16' target='_blank' rel='noopener noreferrer'>
               <SiReplit className='contact-social-icon' />

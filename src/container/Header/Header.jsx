@@ -27,13 +27,14 @@ const Header = () => {
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello there, I am</p>
-              <h1 className="head-text">Moin K.</h1>
+              {/* <h1 className="head-text" style={{ whiteSpace: "nowrap" }}>Moin Khan.</h1> */}
+              <h1 className="head-text" >MoinKhan.</h1>
             </div>
           </div>
           <div className="tag-cmp app__flex">
-            <p style={{ marginLeft: 20 }} className='p-text'>Web Developer </p>
-            <p style={{ marginLeft: 20 }} className='p-text'>Freelancer</p>
-            <p style={{ marginLeft: 20 }} className='p-text'>youtuber</p>
+            <p style={{ marginLeft: 20 }} className='p-text'>Front End Developer </p>
+            <p style={{ marginLeft: 20 }} className='p-text'>Back End Developer </p>
+            <p style={{ marginLeft: 20 }} className='p-text'>Freelancer </p>
           </div>
         </div>
       </motion.div>
@@ -61,7 +62,7 @@ const Header = () => {
         className='app__header-circles'
       >
         {
-          [images.redux, images.react, images.next].map((circle, index) => {
+          [images.python, images.react, images.node].map((circle, index) => {
             return <div className="circle-cmp app__flex" key={`circle-${index}}`}>
               <img src={circle} alt="" />
             </div>
