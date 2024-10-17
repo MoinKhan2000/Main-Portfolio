@@ -1,0 +1,73 @@
+.app__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--primary-color);    
+
+    .head-text {
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .app__contact-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+
+        .app__contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--lightGray-color);
+            border-radius: 8px;
+            background-color: var(--white-color);
+            text-align: center;
+            width: 200px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .contact-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: var(--secondary-color);
+            }
+
+            h4 {
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                font-weight: 400;
+                color: var(--gray-color);
+            }
+        }
+
+        .app__contact-socials {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            .contact-social-icon {
+                font-size: 1.5rem;
+                color: var(--secondary-color);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: var(--black-color);
+                }
+            }
+        }
+    }
+}
