@@ -14,7 +14,7 @@ const Work = () => {
     useEffect(() => {
         const query = '*[_type=="works"]';
         client.fetch(query).then((data) => {
-            console.log(data);  // Log the fetched data to check its structure
+            // console.log(data);  // Log the fetched data to check its structure
             setWorks(data);
             setFilterWork(data);
         });
@@ -38,7 +38,7 @@ const Work = () => {
             <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
 
             <div className="app__work-filter">
-                {['UI/UX', 'Web App', 'React JS', 'All'].map((item, index) => (
+                {['UI/UX', 'Web App', 'React JS', 'Freelancing', 'All'].map((item, index) => (
                     <div
                         key={index}
                         onClick={() => handleWorkFilter(item)}
